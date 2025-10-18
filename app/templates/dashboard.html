@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card text-center p-3">
+      <h5>Patients</h5>
+      <h2>{{ patients_count }}</h2>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center p-3">
+      <h5>Tests</h5>
+      <h2>{{ tests_count }}</h2>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center p-3">
+      <h5>Reports</h5>
+      <h2>{{ reports_count }}</h2>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4">
+  <h4>Recent reports</h4>
+  <ul class="list-group">
+    {% for r in recent_reports %}
+    <li class="list-group-item">
+      <strong>{{ r.patient.name }}</strong> — {{ r.summary[:80] }}...
+      <a class="btn btn-sm btn-outline-primary float-end" href="{{ url_for('reports.view_report', report_id=r.id) }}">View</a>
+    </li>
+    {% else %}
+    <li class="list-group-item">No recent reports</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

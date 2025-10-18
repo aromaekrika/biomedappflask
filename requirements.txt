@@ -1,0 +1,12 @@
+Flask>=2.2
+Flask-SQLAlchemy>=3.0
+Flask-Migrate>=4.0
+Flask-Login>=0.6
+Flask-WTF>=1.1
+python-dotenv>=1.0
+Werkzeug>=2.2
+WTForms>=3.0
+gunicorn
+chart.js==3.9.1  # frontend lib (install via CDN or static)
+# Optional for PDF export:
+WeasyPrint>=59.0  # or pdfkit + wkhtmltopdf / reportlab
